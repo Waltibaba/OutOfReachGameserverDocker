@@ -1,0 +1,1 @@
+ALTER ROLE oor SET search_path = oor_server;

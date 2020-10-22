@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  server:
+    build: ./oor/.
+    ports:
+      - "27015-27030:27015-27030/tcp"
+      - "27015-27030:27015-27030/udp"
+      - "27010:27010/tcp"
+      - "27010:27010/udp"
+      - "19933:19933"
+    volumes:
+      - ./data:/outofreach:rw
+      - ./sfs2x-service.vmoptions:/sfs2x-service.vmoptions:ro
+  postgres:
+    image: postgres:9
+    environment:
+      - POSTGRES_USER=oor
+      - POSTGRES_PASSWORD=YOURPWHERE
+      - POSTGRES_DB=oor_server
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d/:ro

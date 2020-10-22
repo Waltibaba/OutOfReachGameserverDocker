@@ -1,0 +1,38 @@
+# Enter one VM parameter per line
+# To include another file, uncomment the following line and enter the file path:
+# -include-options [path to other .vmoption file]
+
+# DO NOT CHANGE THOSE VALUES UNLESS YOU KNOW WHAT ARE YOU DOING :)
+-classpath/p ./:lib/*:lib/jetty/lib/*:extensions/__lib__/*
+-Dfile.encoding=UTF-8
+-Xms2048M
+-Xmx2048M
+-Djava.library.path=lib/linux64
+
+-Door.database.host=postgres:5432
+-Door.database.user=oor
+-Door.database.password=YOURPWHERE
+-Door.database.name=oor_server
+-Dspring.profiles.active=postgres
+#-Dspring.profiles.active=h2
+
+# Put your parameters below
+
+# Steam master server query port
+#-Door.steam.master.server.updater.port=
+
+# Overrides default web console user
+-Door.web.console.user=admin
+-Door.web.console.pass=pingu
+
+# Maximum allowable amount of players, must be in range <1;100>
+-Door.max.players.count=75
+
+# This paramater is only for compability purposes it will be removed soon
+-Door.send.heartbeat.to.legacy.master=false
+
+-Door.server.ip.address=0.0.0.0
+-Door.server.port=27016
+-Door.server.console.port=19933
+-Door.steam.master.server.updater.port=27010
+
